@@ -1,0 +1,22 @@
+<div class="pase">
+  <h1>PUEDE ENTRAR ?</h1>
+  <form (ngSubmit)="onValidar()">
+    <label>
+      EDAD
+      <input type="number" name="edad" [(ngModel)]="edad" required />
+    </label>
+    <label>
+      YA PAGO ?
+      <input type="checkbox" name="pago" [(ngModel)]="pago" />
+    </label>
+    <button type="submit" [disabled]="cargando()">
+      {{ cargando() ? 'CONSULTANDO' : 'VALIDAR ACCESO' }}
+    </button>
+  </form>
+
+  @if (respuesta()) {
+  <pre class="resultado">
+      {{ respuesta() | json }}
+    </pre>
+  }
+</div>
